@@ -63,16 +63,14 @@
   <div class="info">📱 Model: model.glb</div>
 
   <model-viewer
-    id="model"
-    src="model.glb"
-    alt="3D model"
-    ar
-    ar-modes="scene-viewer quick-look webxr"
-    camera-controls
-    auto-rotate
-    shadow-intensity="1"
-    style="background-color: #000;">
-  </model-viewer>
+  src="model.glb"
+  ar
+  ar-placement="floor"
+  ar-modes="scene-viewer webxr quick-look"
+  camera-controls
+  shadow-intensity="1"
+  scale="0.1 0.1 0.1">
+</model-viewer>
 
   <button id="arButton">📸 AR ile Görüntüle</button>
 
@@ -84,4 +82,5 @@
     });
   </script>
 </body>
+
 </html>
