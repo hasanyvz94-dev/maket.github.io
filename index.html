@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR Görüntüleyici - Modelim</title>
+
+  <!-- Google model-viewer kütüphanesi -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 100%;
+    }
+
+    #arButton {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, #00bfa6, #00796b);
+      color: white;
+      border: none;
+      font-size: 1.1rem;
+      font-family: sans-serif;
+      padding: 12px 24px;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    #arButton:hover {
+      transform: translateX(-50%) scale(1.05);
+      background: linear-gradient(90deg, #00cdaa, #00967a);
+    }
+
+    .info {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      font-family: sans-serif;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 6px 10px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="info">📱 Model: model.glb</div>
+
+  <model-viewer
+    id="model"
+    src="model.glb"
+    alt="3D model"
+    ar
+    ar-modes="scene-viewer quick-look webxr"
+    camera-controls
+    auto-rotate
+    shadow-intensity="1"
+    style="background-color: #000;">
+  </model-viewer>
+
+  <button id="arButton">📸 AR ile Görüntüle</button>
+
+  <script>
+    const mv = document.getElementById("model");
+
+    document.getElementById("arButton").addEventListener("click", () => {
+      mv.activateAR(); // Kamerayı açıp AR moduna geçiş yapar
+    });
+  </script>
+</body>
+</html>
